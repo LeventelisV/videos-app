@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import firebase from 'firebase/compat/app'
+import 'firebase/compat/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import SignIn from './Components/SignIn'
+import VideosMain from './Components/VideosMain'
+
+firebase.initializeApp({
+  apiKey: "AIzaSyCAt7B44xhe5HayuqNf6oogNyCmDUmHt5k",
+  authDomain: "videos-app-55b69.firebaseapp.com",
+  projectId: "videos-app-55b69",
+  storageBucket: "videos-app-55b69.appspot.com",
+  messagingSenderId: "383469728280",
+  appId: "1:383469728280:web:8e8ec0a8a07bfede84c96d"
+})
+const auth = firebase.auth();
 
 function App() {
+  
+  const [user] = useAuthState(auth);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  <section>{user ? <VideosMain user={user} auth={auth}/> :<SignIn/>}</section>
     </div>
   );
 }
