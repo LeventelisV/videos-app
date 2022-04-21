@@ -63,8 +63,8 @@ export default function VideosMain({auth,user}) {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<VideosGrid auth={auth} myVideos={myVideos}/>} />
-                <Route path="/:vid/:vcategory" element={<VideoItem myVideos={myVideos} user={user}/>}/>
+                <Route index element={<VideosGrid auth={auth} myVideos={myVideos}/>} />
+                <Route path="/:vcategory/:vname" element={<VideoItem myVideos={myVideos} user={user}/>}/>
             </Routes>
         </Router>
     )

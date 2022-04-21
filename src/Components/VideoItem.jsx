@@ -3,14 +3,15 @@ import { Link, useParams } from "react-router-dom"
 import CommentArea from "./CommentArea"
 
 export default function VideoItem({ myVideos,user }) {
-    const { vid, vcategory } = useParams()
+    const { vcategory,vname } = useParams()
     const [currentVideo, setCurrentVideo] = useState(null)
     const [relatedVideos, setRelatedVideos] = useState([])    
 
     useEffect(() => {
         let newRelatedVideos = []
+        console.log(vname,'vname')
         myVideos.map((video) => {
-            if (vid == video.id) {
+            if (vname == video.title) {
                 setCurrentVideo(video)
             }
             else if (vcategory == video.category) {
