@@ -25,7 +25,7 @@ export default function VideoItem({ myVideos, user }) {
         <div className="my-6 mx-40">
             <div className="flex justify-around">
                 <div className="w-1/3 lg:w-1/4">
-                    <iframe className="w-full" src={currentVideo?.link} title={currentVideo?.title}/>
+                    <iframe className="w-full" src={currentVideo?.link} title={currentVideo?.title} />
                     <CommentArea user={user} />
                 </div>
                 <div className="border-l-4  border-black">
@@ -34,14 +34,16 @@ export default function VideoItem({ myVideos, user }) {
                         <div className="space-y-5">
                             {relatedVideos.map((video) => {
                                 return (
-                                    <iframe title={video.title} key={video.id} src={video.link}/>
+                                    <iframe title={video.title} key={video.id} src={video.link} />
                                 )
                             })}
                         </div>
                     </div>
                 </div>
             </div>
-            <Link to="/" className="text-blue-600 flex justify-end mr-20 mt-10">Back</Link>
+
+            <Link className="flex justify-end mr-16" to="/"><button className="text-white py-2 px-4 font-bold rounded bg-yellow-500 hover:bg-yellow-700 mr-20 mt-10">Back</button></Link>
+
         </div>
     )
 }
