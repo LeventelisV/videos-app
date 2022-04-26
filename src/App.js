@@ -15,12 +15,12 @@ firebase.initializeApp({
 const auth = firebase.auth();
 
 function App() {
-  
+
   const [user] = useAuthState(auth);
 
   return (
     <div className="App">
-  <section>{user ? <VideosMain user={user} auth={auth}/> :<SignIn/>}</section>
+      <section>{user ? <VideosMain user={user} auth={auth} /> : <SignIn />}</section>
     </div>
   );
 }
